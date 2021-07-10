@@ -1,0 +1,45 @@
+plugins {
+    id 'java'
+    id 'io.izzel.taboolib' version '1.3'
+    id 'org.jetbrains.kotlin.jvm' version '1.4.0'
+}
+
+group = 'com.skillw.rpglib'
+version = '1.0.0'
+
+sourceCompatibility = '8'
+targetCompatibility = '8'
+
+taboolib {
+    tabooLibVersion = '5.7.2'
+    loaderVersion = '3.0.4'
+    classifier = null
+    builtin = true
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'ink.ptms.core:v11600:11600:all'
+    implementation 'org.jetbrains.kotlin:kotlin-stdlib'
+    implementation fileTree(dir: 'libs', includes: ['*.jar'])
+}
+
+processResources {
+    from(sourceSets.main.resources.srcDirs) {
+        include 'plugin.yml'
+        expand(
+                name: rootProject.name,
+                main: project.group + ".boot.PluginBoot",
+                version: project.version,
+                libVersion: taboolib.tabooLibVersion,
+                loaderVersion: taboolib.loaderVersion
+        )
+    }
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
+}

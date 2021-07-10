@@ -1,0 +1,7 @@
+example:
+  attribute:
+    物理伤害: 100
+  potion:
+    SPEED: 1
+  permission:
+    cmi-command-fly: true

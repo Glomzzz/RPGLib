@@ -1,0 +1,37 @@
+mysql:
+  host: '127.0.0.1'
+  port: '3306'
+  user: 'rpglibuser'
+  password: 'root'
+  database: 'rpglib'
+sqlite:
+  user: 'user'
+  password: 'password'
+options:
+  fixed:
+    integer:
+      max: -1
+      min: -1
+    decimal:
+      max: 2
+      min: 2
+script:
+  static:
+    Bukkit: 'org.bukkit.Bukkit'
+    Tool: 'com.skillw.rpglib.script.ScriptTool'
+    RPGLib: 'com.skillw.rpglib.RPGLib'
+    CalculationUtils: 'com.skillw.rpglib.util.CalculationUtils'
+    MapUtils: 'com.skillw.rpglib.util.MapUtils'
+    ColorUtils: 'com.skillw.rpglib.util.ColorUtils'
+    EDCodeUtils: 'com.skillw.rpglib.util.EDCodeUtils'
+    EntityUtils: 'com.skillw.rpglib.util.EntityUtils'
+    EquationUtils: 'com.skillw.rpglib.util.EquationUtils'
+    FileUtils: 'com.skillw.rpglib.util.FileUtils'
+    ItemUtils: 'com.skillw.rpglib.util.ItemUtils'
+    GsonUtils: 'com.skillw.rpglib.util.GsonUtils'
+    MessageUtils: 'com.skillw.rpglib.util.MessageUtils'
+    NumberUtils: 'com.skillw.rpglib.util.NumberUtils'
+    PlayerUtils: 'com.skillw.rpglib.util.PlayerUtils'
+  events:
+    AsyncPlayerChatEvent:
+      - 'plugins/RPGLib/scripts/example.js::onChat'
